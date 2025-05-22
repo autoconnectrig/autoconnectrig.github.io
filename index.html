@@ -37,60 +37,29 @@
   <script src="./static/js/index.js"></script>
 
   <style>
-    /* 增加主容器宽度 */
-    .container.is-max-desktop {
-      max-width: 1440px !important;  /* 从默认960px扩展 */
-    }
-    
-    /* 优化行宽 */
-    .content p {
-      max-width: 90ch;  /* 每行约90个英文字符（中文约45字） */
-      margin: 0 auto;
-      line-height: 1.7;
-      font-size: 1.1rem;
-    }
-    
-    /* 图片放大方案 */
+    /* 优化后的CSS */
     .gif-box {
-      width: 95%;
-      max-width: 800px;  /* 桌面端最大宽度 */
-      height: 450px;      /* 固定高度 */
-      margin: 25px auto;
-      object-fit: cover;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      margin: 10px 0;
     }
     
-    /* 网格布局优化 */
-    .columns.is-multiline {
-      margin: 2rem -1.5rem;
+    .gif-box:hover {
+      transform: translateY(-5px);
     }
     
-    .column {
-      padding: 1.5rem;
-    }
-    
-    /* 响应式调整 */
-    @media (min-width: 1024px) {
-      .gif-box {
-        height: 500px;
-        max-width: 900px;
+    @media (max-width: 1200px) {
+      .columns.is-mobile {
+        flex-wrap: wrap;
       }
-    }
-    
-    @media (max-width: 768px) {
-      .gif-box {
-        height: 350px;
-        width: 100%;
-      }
-      
-      .content p {
-        max-width: 100%;
-        padding: 0 1rem;
+      .column {
+        flex: 0 0 100%;
+        padding: 5px;
       }
     }
     </style>
 
-    
 </head>
 <body>
 
@@ -119,7 +88,7 @@
                 <a>Changrong Hu</a><sup>5</sup>&nbsp,
             </span>
             <span class="author-block">
-                <a>Puhua Jiang</a><sup>4</sup>&nbsp,
+                <a href="https://scholar.google.com/citations?user=E-k3WcgAAAAJ&hl=en/" target="_blank">Puhua Jiang</a><sup>4</sup>&nbsp,
             </span>
             <span class="author-block">
                 <a>Junlin Yu</a><sup>6</sup>&nbsp,
