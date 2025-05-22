@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HumanSkinNet: Automatic Skinning Weight Prediction Network <br/>for Human Animation</title>
+  <title>Auto-Connect: Connectivity-Preserving RigFormer <br/>with  Direct Preference Optimization</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -65,33 +65,58 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">HumanSkinNet: Automatic Skinning Weight<br/> Prediction Network for Human Animation</h1>
-          <!-- <div class="is-size-5 publication-authors">
+          <h1 class="title is-1 publication-title">Auto-Connect: Connectivity-Preserving RigFormer<br/> with Direct Preference Optimization</h1>
+          <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://utkarshsinha.com">Utkarsh Sinha</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://jonbarron.info">Jonathan T. Barron</a><sup>2</sup>,
+                <a>Jingfeng Guo</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
+                <a>Jian Liu</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
+                <a>Jinnan Chen</a><sup>3</sup>,
             </span>
             <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
+                <a>Shiwei Mao</a><sup>4</sup>,
             </span>
             <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
+                <a>Changrong Hu</a><sup>5</sup>,
             </span>
-          </div> -->
+            <span class="author-block">
+                <a>Puhua Jiang</a><sup>4</sup>,
+            </span>
+            <span class="author-block">
+                <a>Junlin Yu</a><sup>6</sup>,
+            </span>
+            <span class="author-block">
+                <a>Jing Xu</a><sup>7</sup>,
+            </span>
+            <span class="author-block">
+                <a>Qi Liu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+                <a>Lixin Xu</a><sup>7</sup>,
+            </span>
+            <span class="author-block">
+                <a>Zhuo Chen</a><sup>7</sup>,
+            </span>
+            <span class="author-block">
+                <a>Chunchao Guo</a><sup>7</sup>,
+            </span>
 
-          <!-- <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Washington,</span>
-            <span class="author-block"><sup>2</sup>Google Research</span>
-          </div> -->
+
+
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>South China University of Technology</span>
+            <span class="author-block"><sup>2</sup>Hong Kong University of Science and Technology</span>
+            <span class="author-block"><sup>3</sup>National University of Singapore</span>
+            <span class="author-block"><sup>4</sup>Tsinghua Shenzhen International Graduate School</span>
+            <span class="author-block"><sup>5</sup>University of Science and Technology of China</span>
+            <span class="author-block"><sup>6</sup>Beijing Normal University</span>
+            <span class="author-block"><sup>7</sup>Tencent Hunyuan</span>
+        </div>
 
           </div>
         </div>
@@ -109,15 +134,10 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-			This work presents HumanSkinNet, an end-to-end automatic architecture specifically designed 
-			for predicting skinning weights from an input humanoid character model and its associated skeleton. 
-			Given a character mesh and skeleton as input, the proposed novel architecture explicitly decouples 
-			the body skeleton and the component skeleton, extracting both common body skeletal features and 
-			character-specific component skeletal features as attributes of the graph nodes. To achieve smoother weight distribution, 
-			the local bone chain is considered as the smallest unit, taking into account the weight transfer between bones in the same chain. 
-			Instead of using vertex-bone distances alone, the proposed method involves using the bone selection module (BSM) to dynamically select the affected local bone chains. 
-			The BSM can easily be applied to existing models as a plug-and-play module, improving performance significantly. 
-			Our contributions have been shown to be effective in experimental results, with HumanSkinNet surpassing current state-of-the-art alternatives.
+            We introduce Auto-Connect, a novel approach for automatic rigging that explicitly preserves skeletal connectivity through a connectivity-preserving tokenization scheme. Unlike previous methods that predict bone positions represented as two joints or first predict points before determining connectivity, our method employs special tokens to define endpoints for each joint's children and for each hierarchical layer, effectively automating connectivity relationships. This approach significantly enhances topological accuracy by integrating connectivity information directly into the prediction framework.
+            To further guarantee high-quality topology, we implement a topology-aware reward function that quantifies topological correctness, which is then utilized in a post-training phase through reward-guided Direct Preference Optimization. 
+            Additionally, we incorporate implicit geodesic features for latent top-k bone selection, which substantially improves skinning quality. By leveraging geodesic distance information within the model's latent space, our approach intelligently determines the most influential bones for each vertex, effectively mitigating common skinning artifacts.
+            This combination of connectivity-preserving tokenization, reward-guided fine-tuning, and geodesic-aware bone selection enables our model to consistently generate more anatomically plausible skeletal structures with superior deformation properties.
           </p>
         </div>
       </div>
@@ -134,67 +154,53 @@
         <!-- Animation Demo Title -->
         <div class="columns is-centered">
             <div class="column is-full-width">
-                <h2 class="title is-3 has-text-centered">Animation Demo</h2>
+                <h2 class="title is-3 has-text-centered">Animation Results</h2>
 
                 <!-- Demo Content by Rows -->
                 <div class="columns is-centered">
                     <!-- Column Titles Aligning with the Content -->
                     <div class="column has-text-centered">
-                        <h2 class="title is-4">Mesh</h2>
+                        <h2 class="title is-4">Rigging</h2>
                     </div>
                     <div class="column has-text-centered">
-                        <h2 class="title is-4">Skeleton</h2>
+                        <h2 class="title is-4">Skinning</h2>
                     </div>
                     <div class="column has-text-centered">
-                        <h2 class="title is-4">Ours</h2>
-                    </div>
-                    <div class="column has-text-centered">
-                        <h2 class="title is-4">HeterSkinNet</h2>
-                    </div>
-                    <div class="column has-text-centered">
-                        <h2 class="title is-4">RigNet</h2>
+                        <h2 class="title is-4">Animation</h2>
                     </div>
                 </div>
 
 
                 <!-- Second Row -->
                 <div class="columns is-centered">
-                    <!-- Mesh Video Column -->
+                    <!-- Rigging Video Column -->
                     <div class="column has-text-centered">
                         <div class="content">
-                            <video id="mesh-video-2" autoplay controls muted loop playsinline="100%">
-                                <source src="./static/videos/joseph_e_zongcai_skin02_others/joseph_e_zongcai_skin02_others.mp4" type="video/mp4">
-                            </video>
+                            <!-- <video id="Rigging-video-1" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/Dinosaur/Dinosaur-skeleton.gif" type="video/mp4">
+                            </video> -->
+                            <img 
+                            src="./static/Dinosaur/Dinosaur-skeleton.gif" 
+                            style="max-width: 100%; height: auto; border-radius: 8px;"
+                            class="animated-gif">
                         </div>
                     </div>
-                    <!-- Skeleton Image Column -->
+                    <!-- Skinning Video Column -->
                     <div class="column has-text-centered">
                         <div class="content">
-                            <img src="./static/images/joseph_e_zongcai_skin02_others_skel.png" alt="Skeleton Image" width="100%">
+                            <img 
+                            src="./static/Dinosaur/Dinosaur-skinning.gif" 
+                            style="max-width: 100%; height: auto; border-radius: 8px;"
+                            class="animated-gif">
                         </div>
                     </div>
-                    <!-- Ours Video Column -->
+                    <!-- Animation Video Column -->
                     <div class="column has-text-centered">
                         <div class="content">
-                            <video id="ours-video-2" autoplay controls muted loop playsinline="100%">
-                                <source src="./static/videos/joseph_e_zongcai_skin02_others/Ours.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    <!-- HeterSkinNet Video Column -->
-                    <div class="column has-text-centered">
-                        <div class="content">
-                            <video id="heter-video-2" autoplay controls muted loop playsinline="100%">
-                                <source src="./static/videos/joseph_e_zongcai_skin02_others/HeterSkinNet.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    <!-- RigNet Video Column -->
-                    <div class="column has-text-centered">
-                        <div class="content">
-                            <video id="rignet-video-2" autoplay controls muted loop playsinline="100%">
-                                <source src="./static/videos/joseph_e_zongcai_skin02_others/RigNet.mp4" type="video/mp4">
-                            </video>
+                            <img 
+                            src="./static/Dinosaur/Dinosaur-motion.gif" 
+                            style="max-width: 100%; height: auto; border-radius: 8px;"
+                            class="animated-gif">
                         </div>
                     </div>
                 </div>
@@ -202,41 +208,27 @@
 
                 <!-- Third Row -->
                 <div class="columns is-centered">
-                    <!-- Mesh Video Column -->
+                    <!-- Rigging Video Column -->
                     <div class="column has-text-centered">
                         <div class="content">
-                            <video id="mesh-video-3" autoplay controls muted loop playsinline="100%">
-                                <source src="./static/videos/wuchang_e_dongfeng_skin_others/wuchang_e_dongfeng_skin_others.mp4" type="video/mp4">
+                            <video id="Rigging-video-2" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/joseph_e_zongcai_skin02_others.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
-                    <!-- Skeleton Image Column -->
+                    <!-- Skinning Video Column -->
                     <div class="column has-text-centered">
                         <div class="content">
-                            <img src="./static/images/wuchang_e_dongfeng_skin_others_skel.png" alt="Skeleton Image" width="100%">
-                        </div>
-                    </div>
-                    <!-- Ours Video Column -->
-                    <div class="column has-text-centered">
-                        <div class="content">
-                            <video id="ours-video-3" autoplay controls muted loop playsinline="100%">
-                                <source src="./static/videos/wuchang_e_dongfeng_skin_others/Ours.mp4" type="video/mp4">
+                            <video id="Skinning-video-2" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/Ours.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
-                    <!-- HeterSkinNet Video Column -->
+                    <!-- Animation Video Column -->
                     <div class="column has-text-centered">
                         <div class="content">
-                            <video id="heter-video-3" autoplay controls muted loop playsinline="100%">
-                                <source src="./static/videos/wuchang_e_dongfeng_skin_others/HeterSkinNet.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    <!-- RigNet Video Column -->
-                    <div class="column has-text-centered">
-                        <div class="content">
-                            <video id="rignet-video-3" autoplay controls muted loop playsinline="100%">
-                                <source src="./static/videos/wuchang_e_dongfeng_skin_others/RigNet.mp4" type="video/mp4">
+                            <video id="Animation-video-2" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/HeterSkinNet.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -245,46 +237,277 @@
 
                 <!-- Fourth Row -->
                 <div class="columns is-centered">
-                    <!-- Mesh Video Column -->
+                    <!-- Rigging Video Column -->
                     <div class="column has-text-centered">
                         <div class="content">
-                            <video id="mesh-video-4" autoplay controls muted loop playsinline="100%">
-                                <source src="./static/videos/bonbon_e_duck_skin_others/bonbon_e_duck_skin_others.mp4" type="video/mp4">
+                            <video id="Rigging-video-3" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/joseph_e_zongcai_skin02_others.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
-                    <!-- Skeleton Image Column -->
+                    <!-- Skinning Video Column -->
                     <div class="column has-text-centered">
                         <div class="content">
-                            <img src="./static/images/bonbon_e_duck_skin_others_skel.png" alt="Skeleton Image" width="100%">
-                        </div>
-                    </div>
-                    <!-- Ours Video Column -->
-                    <div class="column has-text-centered">
-                        <div class="content">
-                            <video id="ours-video-4" autoplay controls muted loop playsinline="100%">
-                                <source src="./static/videos/bonbon_e_duck_skin_others/Ours.mp4" type="video/mp4">
+                            <video id="Skinning-video-3" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/Ours.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
-                    <!-- HeterSkinNet Video Column -->
+                    <!-- Animation Video Column -->
                     <div class="column has-text-centered">
                         <div class="content">
-                            <video id="heter-video-4" autoplay controls muted loop playsinline="100%">
-                                <source src="./static/videos/bonbon_e_duck_skin_others/HeterSkinNet.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    <!-- RigNet Video Column -->
-                    <div class="column has-text-centered">
-                        <div class="content">
-                            <video id="rignet-video-4" autoplay controls muted loop playsinline="100%">
-                                <source src="./static/videos/bonbon_e_duck_skin_others/RigNet.mp4" type="video/mp4">
+                            <video id="Animation-video-3" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/HeterSkinNet.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
                 </div>
                 <!--/ Fourth Row -->
+
+
+
+                <!-- Fifth Row -->
+                <div class="columns is-centered">
+                    <!-- Rigging Video Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <video id="Rigging-video-4" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/joseph_e_zongcai_skin02_others.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <!-- Skinning Video Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <video id="Skinning-video-4" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/Ours.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <!-- Animation Video Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <video id="Animation-video-4" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/HeterSkinNet.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Fifth Row -->
+
+
+
+
+                <!-- Sixth Row -->
+                <div class="columns is-centered">
+                    <!-- Rigging Video Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <video id="Rigging-video-5" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/joseph_e_zongcai_skin02_others.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <!-- Skinning Video Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <video id="Skinning-video-5" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/Ours.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <!-- Animation Video Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <video id="Animation-video-5" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/HeterSkinNet.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Sixth Row -->
+
+
+
+
+
+
+            </div>
+        </div>
+        <!--/ Animation Demo Title End -->
+
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Animation Demo Title -->
+        <div class="columns is-centered">
+            <div class="column is-full-width">
+                <h2 class="title is-3 has-text-centered">In-the-wild Rigging Result</h2>
+
+
+                <!-- First Row -->
+                <div class="columns is-centered">
+                    <!-- Input Image Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <img src="./static/images/joseph_e_zongcai_skin02_others_skel.png" alt="Input Image" width="100%">
+                        </div>
+                    </div>
+                    <!-- Rigging Video Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <video id="Rigging-video-1" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/Ours.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <!-- Input Image Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <img src="./static/images/joseph_e_zongcai_skin02_others_skel.png" alt="Input Image" width="100%">
+                        </div>
+                    </div>
+                    <!-- Rigging Video Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <video id="Rigging-video-2" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/Ours.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                <!--/ First Row -->
+
+                <!-- Second Row -->
+                <div class="columns is-centered">
+                    <!-- Input Image Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <img src="./static/images/joseph_e_zongcai_skin02_others_skel.png" alt="Input Image" width="100%">
+                        </div>
+                    </div>
+                    <!-- Rigging Video Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <video id="Rigging-video-3" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/Ours.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <!-- Input Image Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <img src="./static/images/joseph_e_zongcai_skin02_others_skel.png" alt="Input Image" width="100%">
+                        </div>
+                    </div>
+                    <!-- Rigging Video Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <video id="Rigging-video-4" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/Ours.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                <!--/ Second Row -->
+
+                <!-- Third Row -->
+                <div class="columns is-centered">
+                    <!-- Input Image Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <img src="./static/images/joseph_e_zongcai_skin02_others_skel.png" alt="Input Image" width="100%">
+                        </div>
+                    </div>
+                    <!-- Rigging Video Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <video id="Rigging-video-5" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/Ours.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <!-- Input Image Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <img src="./static/images/joseph_e_zongcai_skin02_others_skel.png" alt="Input Image" width="100%">
+                        </div>
+                    </div>
+                    <!-- Rigging Video Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <video id="Rigging-video-6" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/Ours.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                <!--/ Third Row -->
+
+                <!-- Fourth Row -->
+                <div class="columns is-centered">
+                    <!-- Input Image Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <img src="./static/images/joseph_e_zongcai_skin02_others_skel.png" alt="Input Image" width="100%">
+                        </div>
+                    </div>
+                    <!-- Rigging Video Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <video id="Rigging-video-7" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/Ours.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <!-- Input Image Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <img src="./static/images/joseph_e_zongcai_skin02_others_skel.png" alt="Input Image" width="100%">
+                        </div>
+                    </div>
+                    <!-- Rigging Video Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <video id="Rigging-video-8" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/Ours.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                <!--/ Fourth Row -->
+
+                <!-- Fifth Row -->
+                <div class="columns is-centered">
+                    <!-- Input Image Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <img src="./static/images/joseph_e_zongcai_skin02_others_skel.png" alt="Input Image" width="100%">
+                        </div>
+                    </div>
+                    <!-- Rigging Video Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <video id="Rigging-video-9" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/Ours.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <!-- Input Image Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <img src="./static/images/joseph_e_zongcai_skin02_others_skel.png" alt="Input Image" width="100%">
+                        </div>
+                    </div>
+                    <!-- Rigging Video Column -->
+                    <div class="column has-text-centered">
+                        <div class="content">
+                            <video id="Rigging-video-10" autoplay controls muted loop playsinline="100%">
+                                <source src="./static/videos/joseph_e_zongcai_skin02_others/Ours.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                <!--/ Fifth Row -->
+
 
             </div>
         </div>
