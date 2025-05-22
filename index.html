@@ -36,7 +36,7 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 
-<!-- 
+
     <style>
     /* 优化后的CSS */
     .gif-box {
@@ -59,65 +59,7 @@
         padding: 5px;
       }
     }
-    </style> -->
-
-    <style>
-        /* 覆盖Bulma默认容器宽度 */
-        .container.is-max-desktop {
-          max-width: 1440px !important;  /* 扩展主内容区宽度 */
-          padding: 0 40px;  /* 增加左右内边距 */
-        }
-        
-        /* 基础字号放大 */
-        html {
-          font-size: 18px;  /* 原默认16px */
-        }
-        
-        /* 标题放大 */
-        .title.is-1 {
-          font-size: 3.5rem;  /* 原默认3rem */
-        }
-        .title.is-3 {
-          font-size: 2.4rem;
-        }
-        
-        /* 正文行宽优化 */
-        .content p {
-          max-width: 80ch;  /* 最佳可读行宽 */
-          margin: 0 auto;
-          line-height: 1.6;
-        }
-        
-        /* 图片放大策略 */
-        .gif-box {
-          width: 90%;  /* 占据列宽90% */
-          margin: 20px auto;  /* 增加垂直间距 */
-          max-width: 800px;  /* 最大显示宽度 */
-        }
-        
-        /* 网格布局优化 */
-        .columns.is-mobile {
-          margin: 2rem 0;
-        }
-        .column {
-          padding: 1rem;
-        }
-        
-        /* 响应式调整 */
-        @media (max-width: 768px) {
-          .container.is-max-desktop {
-            padding: 0 20px;
-          }
-          .gif-box {
-            width: 100%;
-            margin: 15px 0;
-          }
-          html {
-            font-size: 16px;
-          }
-        }
     </style>
-
 
 </head>
 <body>
@@ -132,40 +74,40 @@
           <h1 class="title is-1 publication-title">Auto-Connect: Connectivity-Preserving RigFormer<br/> with Direct Preference Optimization</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-                <a>Jingfeng Guo</a><sup>1</sup>,
+                <a>Jingfeng Guo</a><sup>* 1</sup>&nbsp,
             </span>
             <span class="author-block">
-                <a>Jian Liu</a><sup>2</sup>,
+                <a>Jian Liu</a><sup>* 2</sup>&nbsp,
             </span>
             <span class="author-block">
-                <a>Jinnan Chen</a><sup>3</sup>,
+                <a href="https://jinnan-chen.github.io/" target="_blank">Jinnan Chen</a><sup>† 3</sup>&nbsp,
             </span>
             <span class="author-block">
-                <a>Shiwei Mao</a><sup>4</sup>,
+                <a>Shiwei Mao</a><sup>4</sup>&nbsp,
             </span>
             <span class="author-block">
-                <a>Changrong Hu</a><sup>5</sup>,
+                <a>Changrong Hu</a><sup>5</sup>&nbsp,
             </span>
             <span class="author-block">
-                <a>Puhua Jiang</a><sup>4</sup>,
+                <a>Puhua Jiang</a><sup>4</sup>&nbsp,
             </span>
             <span class="author-block">
-                <a>Junlin Yu</a><sup>6</sup>,
+                <a>Junlin Yu</a><sup>6</sup>&nbsp,
             </span>
             <span class="author-block">
-                <a>Jing Xu</a><sup>7</sup>,
+                <a>Jing Xu</a><sup>7</sup>&nbsp,
             </span>
             <span class="author-block">
-                <a>Qi Liu</a><sup>1</sup>,
+                <a href="https://drliuqi.github.io/" target="_blank">Qi Liu</a><sup>† 1</sup>&nbsp,
             </span>
             <span class="author-block">
-                <a>Lixin Xu</a><sup>7</sup>,
+                <a>Lixin Xu</a><sup>7</sup>&nbsp,
             </span>
             <span class="author-block">
-                <a>Zhuo Chen</a><sup>7</sup>,
+                <a>Zhuo Chen</a><sup>7</sup>&nbsp,
             </span>
             <span class="author-block">
-                <a>Chunchao Guo</a><sup>7</sup>
+                <a>Chunchao Guo</a><sup>7</sup>&nbsp
             </span>
 
 
@@ -180,7 +122,36 @@
             <span class="author-block"><sup>5</sup>University of Science and Technology of China</span>
             <span class="author-block"><sup>6</sup>Beijing Normal University</span>
             <span class="author-block"><sup>7</sup>Tencent Hunyuan</span>
-        </div>
+          </div>
+          <div class="is-size-6 has-text-centered" style="margin-top: 1rem;">
+            <sup>*</sup> Indicates Equal Contribution &nbsp;&nbsp;&nbsp;&nbsp; <sup>†</sup> Indicates Corresponding Author
+          </div>
+
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/yisuanwang/DRiVE"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (coming soon)</span>
+                  </a>
+              </span>
+            </div>
+
 
           </div>
         </div>
@@ -309,107 +280,95 @@
 
                 <!-- Demo Content by Rows -->
                 <div class="columns is-centered">
-                    <!-- Column Titles Aligning with the Content -->
                     <div class="column has-text-centered">
-                        <h2 class="title is-4">Input Image</h2>
+                      <h2 class="title is-4">Input Image</h2>
                     </div>
                     <div class="column has-text-centered">
-                        <h2 class="title is-4">Rigging</h2>
+                      <h2 class="title is-4">Rigging</h2>
                     </div>
+                    <div class="column has-text-centered">
+                      <h2 class="title is-4">Input Image</h2>
+                    </div>
+                    <div class="column has-text-centered">
+                      <h2 class="title is-4">Rigging</h2>
+                    </div>
+                  </div>
+
+            <!-- 内容行 -->
+            <div class="columns is-multiline is-centered">
+                  <!-- 鲨鱼案例 -->
+                <div class="column is-3">
+                    <img src="./static/images/15b76306bbf73db2e4a537d53e0791eb_norm.jpg" 
+                        alt="输入图片" 
+                        class="gif-box">
                 </div>
-
-
-
-
-                <!-- 鲨鱼案例 -->
-                <div class="columns is-centered is-mobile">
-                    <div class="column">
-                        <img src="./static/images/15b76306bbf73db2e4a537d53e0791eb_norm.jpg"
-                             alt="输入图片"
-                             class="gif-box">
-                    </div>
-                    <div class="column">
-                        <img src="./static/videos/15b76306bbf73db2e4a537d53e0791eb_norm-skeleton.gif"
-                             alt="骨骼"
-                             class="gif-box">
-                    </div>
+                <div class="column is-3">
+                    <img src="./static/videos/15b76306bbf73db2e4a537d53e0791eb_norm-skeleton.gif"
+                        alt="骨骼" 
+                        class="gif-box">
                 </div>
-
+                
                 <!-- 猫咪案例 -->
-                <div class="columns is-centered is-mobile">
-                    <div class="column">
-                        <img src="./static/images/2f5ccb0622657b1f12e9c370af4df0e0_norm.jpg"
-                             alt="输入图片"
-                             class="gif-box">
-                    </div>
-                    <div class="column">
-                        <img src="./static/videos/2f5ccb0622657b1f12e9c370af4df0e0_norm-skeleton.gif"
-                             alt="骨骼"
-                             class="gif-box">
-                    </div>
+                <div class="column is-3">
+                    <img src="./static/images/2f5ccb0622657b1f12e9c370af4df0e0_norm.jpg"
+                        alt="输入图片"
+                        class="gif-box">
+                </div>
+                <div class="column is-3">
+                    <img src="./static/videos/2f5ccb0622657b1f12e9c370af4df0e0_norm-skeleton.gif"
+                        alt="骨骼"
+                        class="gif-box">
                 </div>
 
                 <!-- 麋鹿案例 -->
-                <div class="columns is-centered is-mobile">
-                    <div class="column">
-                        <img src="./static/images/7cb8ca4c6eb639e49f147716a1486b12_norm.jpg"
-                             alt="输入图片"
-                             class="gif-box">
-                    </div>
-                    <div class="column">
-                        <img src="./static/videos/7cb8ca4c6eb639e49f147716a1486b12_norm-skeleton.gif"
-                             alt="骨骼"
-                             class="gif-box">
-                    </div>
+                <div class="column is-3">
+                    <img src="./static/images/7cb8ca4c6eb639e49f147716a1486b12_norm.jpg"
+                        alt="输入图片"
+                        class="gif-box">
                 </div>
-
+                <div class="column is-3">
+                    <img src="./static/videos/7cb8ca4c6eb639e49f147716a1486b12_norm-skeleton.gif"
+                        alt="骨骼"
+                        class="gif-box">
+                </div>
+                
                 <!-- 大雁案例 -->
-                <div class="columns is-centered is-mobile">
-                    <div class="column">
-                        <img src="./static/images/bc91899b-c92a-4fa6-afd0-43a46c916371_norm.jpg"
-                             alt="输入图片"
-                             class="gif-box">
-                    </div>
-                    <div class="column">
-                        <img src="./static/videos/bc91899b-c92a-4fa6-afd0-43a46c916371_norm-skeleton.gif"
-                             alt="骨骼"
-                             class="gif-box">
-                    </div>
+                <div class="column is-3">
+                    <img src="./static/images/bc91899b-c92a-4fa6-afd0-43a46c916371_norm.jpg"
+                        alt="输入图片"
+                        class="gif-box">
                 </div>
-
-
+                <div class="column is-3">
+                    <img src="./static/videos/bc91899b-c92a-4fa6-afd0-43a46c916371_norm-skeleton.gif"
+                        alt="骨骼"
+                        class="gif-box">
+                </div>
 
 
                 <!-- 黑色蜘蛛侠案例 -->
-                <div class="columns is-centered is-mobile">
-                    <div class="column">
-                        <img src="./static/images/0b552396c3ead40194b7643cefc24c4a.jpg"
-                             alt="输入图片"
-                             class="gif-box">
-                    </div>
-                    <div class="column">
-                        <img src="./static/videos/0b552396c3ead40194b7643cefc24c4a-skeleton.gif"
-                             alt="骨骼"
-                             class="gif-box">
-                    </div>
+                <div class="column is-3">
+                    <img src="./static/images/0b552396c3ead40194b7643cefc24c4a.jpg"
+                        alt="输入图片"
+                        class="gif-box">
                 </div>
-
+                <div class="column is-3">
+                    <img src="./static/videos/0b552396c3ead40194b7643cefc24c4a-skeleton.gif"
+                        alt="骨骼"
+                        class="gif-box">
+                </div>
 
 
                 <!-- 红色蜘蛛侠案例 -->
-                <div class="columns is-centered is-mobile">
-                    <div class="column">
-                        <img src="./static/images/6521de41-019b-4c85-9374-654ddf500877.png"
-                             alt="输入图片"
-                             class="gif-box">
-                    </div>
-                    <div class="column">
-                        <img src="./static/videos/6521de41-019b-4c85-9374-654ddf500877-skeleton.png"
-                             alt="骨骼"
-                             class="gif-box">
-                    </div>
+                <div class="column is-3">
+                    <img src="./static/images/6521de41-019b-4c85-9374-654ddf500877.jpg"
+                        alt="输入图片"
+                        class="gif-box">
                 </div>
-
+                <div class="column is-3">
+                    <img src="./static/videos/6521de41-019b-4c85-9374-654ddf500877-skeleton.gif"
+                        alt="骨骼"
+                        class="gif-box">
+                </div>
 
                 
             </div>
